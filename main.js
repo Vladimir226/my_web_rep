@@ -3,6 +3,8 @@
 
 document.getElementById("area").onblur = function() {
    let data = document.getElementById("area").value;
+   console.log(count_alphabet(data));
+
    let words = data.split(' ').length;
    let symbols = data.length;
    let symbols_without_spaces  = data.length - count_spaces(data);
@@ -19,6 +21,30 @@ function count_spaces(data) {
       if (data[i]==" ") counter=counter+1;
    }
    return counter
+}
+
+function count_alphabet(data) {
+   
+   document.getElementById("alphabet").innerHTML = ""
+
+   const alphabet = 'abcdefghijklmnopqrstuvwxyz'
+   let counter_alphabet = new Object();
+   for (let i=0; i<alphabet.length;i++) counter_alphabet[alphabet[i]] = 0;
+   counter_alphabet[" "] = 0;
+
+   for (let i =0; i<data.length;i++)
+   {
+      counter_alphabet[data[i]]=counter_alphabet[data[i]]+1;
+   }
+
+   for (let i=0;i<alphabet.length;i++)
+   {
+      let div = document.createElement('div');
+      div.className="eba";
+      div.innerText=`${alphabet[i]}: ${counter_alphabet[alphabet[i]]}`;
+      document.getElementById("alphabet").appendChild(div);
+   }
+   return counter_alphabet;
 }
 
 
