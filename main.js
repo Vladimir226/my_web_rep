@@ -24,26 +24,24 @@ function count_spaces(data) {
 }
 
 function count_alphabet(data) {
-   
+
    document.getElementById("alphabet").innerHTML = ""
 
-   const alphabet = 'abcdefghijklmnopqrstuvwxyz'
    let counter_alphabet = new Object();
-   for (let i=0; i<alphabet.length;i++) counter_alphabet[alphabet[i]] = 0;
-   counter_alphabet[" "] = 0;
 
-   for (let i =0; i<data.length;i++)
-   {
-      counter_alphabet[data[i]]=counter_alphabet[data[i]]+1;
+   for (let i =0; i<data.length;i++) {
+      if(isNaN(counter_alphabet[data[i]])) counter_alphabet[data[i]] = 1
+      counter_alphabet[data[i]] = counter_alphabet[data[i]]+1;
    }
 
-   for (let i=0;i<alphabet.length;i++)
+
+   for (let key in counter_alphabet)
    {
       let div = document.createElement('div');
-      div.className="eba";
-      div.innerText=`${alphabet[i]}: ${counter_alphabet[alphabet[i]]}`;
+      div.innerText=`"${key}" - ${counter_alphabet[key]}`;
       document.getElementById("alphabet").appendChild(div);
    }
+
    return counter_alphabet;
 }
 

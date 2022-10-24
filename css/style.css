@@ -85,7 +85,11 @@ body {
     align-items: center;
     justify-content: space-between;
 }
- #alphabet {
+ #alphabet div {
     display: flex;
     flex-direction: column;
+
+    font-size: 25px;
+    color: lavender;
+    text-align: left;
  }
