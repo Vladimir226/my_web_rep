@@ -10,12 +10,17 @@ document.getElementById("area").onblur = function() {
 function analyzer() {
    let data = document.getElementById("area").value;
 
-   console.log(document.getElementById("check_value_words").checked);
+
 
    if (document.getElementById("check_value_words").checked)
    {
-      let words = data.split(' ').length;
-      document.getElementById("value_words").innerText = words;
+      if(data!="") {
+         let words = data.split(/[\n,\s]/);
+         console.log(words);
+         words = words.filter(function(f){return f!=""});
+         console.log(words);
+         document.getElementById("value_words").innerText = words.length;
+      }
    }
    else document.getElementById("value_words").innerText = ""
 
@@ -55,15 +60,16 @@ function count_alphabet(data) {
    let counter_alphabet = new Object();
 
    for (let i =0; i<data.length;i++) {
-      if(isNaN(counter_alphabet[data[i]])) counter_alphabet[data[i]] = 1
-      else counter_alphabet[data[i]] = counter_alphabet[data[i]]+1;
+      if(isNaN(counter_alphabet[data[i]])) counter_alphabet[data[i]] = 0
+      counter_alphabet[data[i]] = counter_alphabet[data[i]]+1;
    }
 
 
    for (let key in counter_alphabet)
    {
       let div = document.createElement('div');
-      div.innerText=`"${key}" - ${counter_alphabet[key]}`;
+      if (key==='\n') div.innerText=`"\\n" - ${counter_alphabet[key]}`;
+      else div.innerText=`"${key}" - ${counter_alphabet[key]}`;
       document.getElementById("alphabet").appendChild(div);
    }
 

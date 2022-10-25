@@ -55,12 +55,13 @@ body {
     min-height: 100%;
     overflow: hiden;
     flex-direction: column;
+    justify-content: center;
 
 }
 
 .container {
-    margin: 0px auto;
-    max-width: 1000px;
+    margin: 0 auto;
+    max-width: 700px;
 }
 
 .name_value {
@@ -77,7 +78,17 @@ body {
 .text_area {
     resize: none;
     opacity: 0.5;
-  
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: left;
+   
+
+    width: 100%;
+    
 }
 
 .value_cont {
@@ -95,6 +106,9 @@ body {
  }
  @media(max-width: 500px)
  {
+    .container {
+        max-width: 300px;
+    }
     #alphabet div {
         text-align: center;
         font-size: 30px;
@@ -119,18 +133,17 @@ body {
     color: lavender;
 
     font-size: 30px;
-    margin-right: 20px;
+    
  }
 
  .check_inp {
     transform: scale(3);
-    margin-right: 10px;
     outline: none;
  }
- .text_area {
-    margin-bottom: 50px;
-    border-radius: 20px;
-    font-size: 20px;
-    text-align: left;
+ 
+ .container_input {
+    margin-right: 0;
+    margin-left: auto;
+    
  }
  
