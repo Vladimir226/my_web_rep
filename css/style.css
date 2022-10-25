@@ -91,5 +91,39 @@ body {
 
     font-size: 25px;
     color: lavender;
-    text-align: left;
+    text-align: right;
  }
+ @media(max-width: 500px)
+ {
+    #alphabet div {
+        text-align: center;
+        font-size: 30px;
+    }
+ }
+
+.checks {
+    padding: 0;
+    margin: 0 auto;
+}
+
+ .checks li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+ }
+
+ .checks li div {
+    text-align: left;
+    list-style-type: none;
+    color: lavender;
+
+    font-size: 30px;
+    margin-right: 20px;
+ }
+
+ .check_inp {
+    transform: scale(3);
+    margin-right: 10px;
+    outline: none;
+ }
+ 

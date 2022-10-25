@@ -20,6 +20,13 @@
         <div class="container">
             <h3>Анализатор текста</h3>
             <textarea name="some text" id="area" cols="30" rows="10" class="text_area"></textarea>
+            <ul class="checks">
+               <li><div> слова:</div> <div> <input class="check_inp" type="checkbox" id="check_value_words" onclick="analyzer();"></div></li>
+               <li><div> символы:</div> <div> <input class="check_inp" type="checkbox" id="check_value_symbols" onclick="analyzer();"></div></li>
+               <li><div> символы без пробелов:</div> <div><input class="check_inp" type="checkbox" id="check_value_symbols_without" onclick="analyzer();"></div></li>
+               <li><div> алфавит:</div> <div> <input class="check_inp" type="checkbox" id="check_value_alphabet" onclick="analyzer();"></div></li>
+
+            </ul>
             <h3>Статистика:</h3>
             <div class="value_cont">
                 <h3 class="name_value">Количество слов:</h3>
