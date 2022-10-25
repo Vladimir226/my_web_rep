@@ -108,6 +108,7 @@ body {
 
  .checks li {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
  }
@@ -125,5 +126,11 @@ body {
     transform: scale(3);
     margin-right: 10px;
     outline: none;
+ }
+ .text_area {
+    margin-bottom: 50px;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: left;
  }
  
