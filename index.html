@@ -17,10 +17,23 @@
 <body> 
     <div class="wrapper">
         <div class="container">
-            <div id="board_container">
-
+            <div class="settings" id="settings">
+                <h3 id="game_name">Сапёрик</h3>
+                <h5>Настройки игры:</h5>
+                <input type="number" min="0" class="input_set" id="input_size" placeholder="размер поля">
+                <input type="number" min="0" class="input_set" id="input_bombs" placeholder="количество бомб">
+                <input type="number" min="0" class="input_set" id="input_time" placeholder="время игры сек.">
+                <button class="btn btn_start" id="btn_start" onclick="Game_start();">Начать игру!</button>
             </div>
-            <button id="game_restart" onclick="Game_restart();">начать заново</button>
+            <div class="game" id="game">
+                <h3 id="title_result"></h3>
+                <h3 class ="statistics_title" id="title_timer">Осталось секунд</h3>
+                <h3 class ="statistics_title" id="title_bombs">Осталось бомб</h3>
+                <div id="board_container"></div>
+                <button class="btn" id="game_restart" onclick="Game_restart();">начать заново</button>
+                <button class="btn" id="game_settings" onclick="Game_settings();">Вернуться в Настройки</button>
+                
+            </div>
         </div>
     </div>
     <div id="test"></div>
