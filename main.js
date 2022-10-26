@@ -3,17 +3,48 @@
 let random_bombs = [];
 let clicked_bombs = [];
 let cells = [];
-let click_color = "blue";
-let bomb_color = "red";
-let size=3;
+let result = false;
 let game_over = false;
+let value_cur_time=0;
+
+const click_color = "blue";
+const bomb_color = "red";
+const size=5;
+const bombs=10;
+const game_time = 20
 
 
 
+function Game_start()
+{
+   timer_start();
+   create_random_boms(size,bombs);
+   filling_cells(size);
+   create_board(size);
+}
 
-create_random_boms(size,5);
-filling_cells(size);
-create_board(size);
+function Game_restart()
+{
+   Board_clear();
+   Data_clear();
+   Game_start();
+}
+
+function Board_clear()
+{
+   document.getElementById('board_container').innerHTML="";
+}
+
+function Data_clear()
+{
+   
+   random_bombs = [];
+   clicked_bombs = [];
+   cells = [];
+   game_over = false;
+   value_cur_time=0;
+
+}
 
 function filling_cells(size) {
    for(let i=0;i<size;i++)
@@ -85,8 +116,9 @@ function create_board(size)
             console.log(clicked_bombs.sort().toString());
             if(random_bombs.sort().toString()==clicked_bombs.sort().toString())
             {
-               console.log("Game over!");
-               game_over=true;
+               result=true;
+               clearInterval(window.timerId);
+               Game_over();
             }
          };
          
@@ -108,6 +140,46 @@ function create_random_boms(size,count)
          random_bombs.push(unique);
          counter=counter+1;
       }
+   }
+}
+
+
+//Эта функция запускает таймер
+function timer_start() {
+	window.timerId = window.setInterval(timer, 1000);
+}
+//Эта функция останавливает таймер
+function timer_stop() {
+	window.clearInterval(window.timerId);
+}
+
+//Эта функция меняет value для инпута
+function timer() {
+	value_cur_time=value_cur_time+1
+   console.log(value_cur_time);
+   if (value_cur_time==game_time)
+   {
+      timer_stop();
+      Game_over();
+   }
+}
+function Game_over()
+{
+   game_over=true;
+   timer_stop();
+   Result_game(result);
+}
+
+
+function Result_game(result) 
+{
+   if(result)
+   {
+      console.log("Game over!, you win!!!");
+   }
+   else
+   {
+      console.log("stop! you lose(")
    }
 }
 
